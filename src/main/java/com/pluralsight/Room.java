@@ -38,6 +38,18 @@ public class Room {
         //}
         return !(isOccupied || isDirty);
     }
+    public void checkIn(){
+        this.isDirty = true;
+        this.isOccupied = true;
+    }
+    public void checkout(){
+        this.isOccupied = false;
+    }
+    public void cleanRoom(){
+        if(!isOccupied){
+            this.isDirty = false;
+        }
+    }
 
     @Override
     public String toString() {
@@ -46,6 +58,7 @@ public class Room {
                 ", price=" + price +
                 ", isOccupied=" + isOccupied +
                 ", isDirty=" + isDirty +
+                ", isAvailable=" + isAvailable() +
                 '}';
     }
 }
